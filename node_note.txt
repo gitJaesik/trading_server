@@ -1,0 +1,1031 @@
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+scope의 개념을 사용하면, 코드를 모아서 사용해야된다.
+함수 이름이 사용된 지역을 scope라고 부른다. scope가 더렵혀진다는 표현이 존재한다.
+
+View라는 것?
+
+자바 스크립트의 클래스
+-> 기존언어의 클래스 : 상속의 개념
+
+자바스크립트의 클래스 - 프로토타입이라는 개념
+자바스크립의 최상위 클래스는 Object (또는 {}로 사용한다.)
+--> Object.prototype.a = 1
+b = new Object();
+b.a를 했을 시, b에게 a라는 프로퍼티가 없을 시 위로 올라감 (위로 올라간다는 것은 자기를 선언한 클래스의 프로토타입 속성에서 a를 찾는다.)
+b.c를 했을 때, 프로토타입까지 검색하였는데도 c가 없으면 undefine라고 정의함
+
+자바스크립트에는 9가지 Built-in 클래스가 있다.
+Function이라는 클래스도 있다.
+
+Object는 자바스크립트에서 정의되어있는 유일한 컬렉션
+Object에는 push, splice, indexOf 등
+
+Number String Boolean은 기본 적으로 원시값 primitive value를 사용해서 선언하여도 된다. javascript에서 primitive type으로 사용하다가 해당 클래스에서 사용 가능한 메소드를 사용할 경우 자동으로 클래스로 재 정의를 시킨다.
+
+Math 클래스의 특징
+Math는 클래스를 생성하여 객체로 사용하지 않아도 static에서 메소드를 사용하는 형식으로 사용 가능하다.
+
+Object.prototype
+     .prototype.a = 1
+
+Array.prototype.push = function{}
+
+var arr = []
+     arr. push
+
+자바스크립트 클래스의 장점에 대해 생각해보자.
+
+자바스크립트에서 클래스 만드는 방법
+
+function Dog() {}
+
+// instance마다 공유되지 않는 부분 (클래스 갯수가 많아지면 해당 this의 공간많큼 크기가 커진다.)
+Dog = function() {
+     this.~
+}
+
+// instance마다 공유되는 부분
+// prototype은 클래스 변수 느낌 (클래스 갯수가 많아도 사용하는 공간은 같다.)
+Dog.prototype.total = 3
+Dog.prototype.speak = function {...}
+
+dog = new Dog();
+name
+
+JSON
+-JSON이 어디에서 왔는가?
+var obj = {}; == (new Object();)
+arr = []; == (new Array();)
+\~~\ == ( new RegExp();)
+위를 리터럴이라고 한다.
+
+prototype 함수는 실제로 this를 넘겨주기때문에 실행만 하면 된다.
+a.render.apply(this)  - (실제 구현 내용)
+
+확장성
+예) SetInterval을 외부에서 조작 할 수 있도록
+예) 만든 ball을 body가 아닌 다른 곳에서도 붙일 수 있도록
+
+객체라는 것은 말이 되는 것을 포함해야된다.
+ball : 공의 크기, 위치
+balls : 공의 갯수, 박스의 크기
+
+balls가 setInterval을 하는 것은 말이안된다.
+
+숙제
+(1) 태그 <UL> <LI> <INPUT> 공부해오기
+(2) CSS가 어떤식으로 생겼는지 공부하기
+========================================================================================
+중요하게 알아야 할 것!
+typeof Operator
+
+var a = 123;
+var ret = typeof a     // ret = "number"
+
+var b = "test";
+ret = typeof b     // ret = "string"
+
+// function 파라미터에 굳이 var name 식의 var을 안 붙여도 된다.
+function sayHello(name, age) {
+}
+
+// 익명함수를 사용해서 함수를 사용할 수 있다.
+// if문으로 같은 함수를 다른 방식으로 사용 가능 할 듯
+var func = new Function("x", "y", "return x*y;");
+
+// 익명함수의 다른 예 : function literals
+var func = function(x,y){ return x*y };
+
+// HTML 수준 이벤트
+http://www.tutorialspoint.com/html/html_events_ref.htm
+
+대충 알아야 할 것
+for in 있음
+========================================================================================
+- 서버
+
+- 헤더분석
+
+- 라우터 - 컨트롤러
+
+- 미들웨어
+
+서버에서는 익명의 사람이 올 수 있으므로 요청이 올때마다 인증을 실행해야한다.
+
+syncronize / blocking
+asyncronize / non-blocking
+
+JSON.stringify()
+JSON.parse()
+========================================================================================
+서버에 요청을 보냈을 때, 2번의 값을 주는 이유는 처음에 favico을 요청하기 때문이다.
+
+/(루트)에 요청을 보낸다.
+node.js는 index.html로 바로 주지 않는다. (이전에 index.html을 파일로 받아서 write를 준 것 뿐이다.)
+
+server에서 client에게 이동하라고 header를 설정해주면, 클라이언트에서 다시 위치를 옮긴다.
+
+request 정보는 referal이라는 헤더에 존재함
+
+노드몬 스크립트 찾기
+
+http 구조 배우기
+https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/
+
+data 읽어서 치환하기
+replace 사용해서 {html} 치환하기
+========================================================================================
+window.onload = function() {
+  //alert("test");
+  var formTest = window.document.getElementById("formTest");
+  formTest.addEventListener("submit", function(event) {
+      event.preventDefault(); <-- 받아오는 이벤트를 막는다.
+     this <-- 여기에서 this 하면 DOM을 받아온다.
+      console.log(event);
+
+  })
+};
+
+CSS 바로 밑에 있는 tag를 표현하고 싶다.
+
+.red > li
+
+(">"를 사용한다.)
+
+CSS에서 and가 되는 것
+하기는 and
+ul.class
+하기는 폭포수
+ul .class
+
+status
+a.className:hover
+
+attribute
+
+ul input[type="checkbox"].class:focus {
+}
+
+<head>
+<lilnk rel="stylesheet" href="style.css">
+</head>
+========================================================================================
+자바스크립트 도구
+http://www.bloter.net/archives/214274
+========================================================================================
+JS린트로 검사하기
+
+변정훈.. 조대협.. IntelliJ 사용
+
+걸프 사용...
+
+https://pages.github.com/
+
+io 페이지 만들기
+========================================================================================
+flickr api 사용
+
+API
+웹 (네트워크) -> http               SDK
+Local               Skype://
+
+http < === > host  ~~~~.com/ ~~ / ~~ ? a=1&b=2
+                     path
+                     query
+                     body [POST]
+                     method
+               인증 <-
+(데이터)               포맷 <-
+JSON
+
+https://www.flickr.com/services/api/flickr.photos.getRecent.html
+
+https://www.flickr.com/services/api/explore/flickr.photos.getRecent
+========================================================================================
+비동기 함수이기 때문에 콜백에서 server 라우딩 작업을 해야된다.
+
+NodeJS에서 함수 실제로 실행 되는 부분
+f(...) = > f.apply(f, [...])
+
+proxy 개념 (this를 고정시킨다..?)
+
+이벤트 핸들러 h가 있다... 함수?
+
+h = (e) => {
+     this.[]();
+}
+
+proxy 패턴 찾아보기
+
+npm install p1, p2, p3 ....
+
+npm remove p1..
+
+npm init 모듈과 패키지 관리 (의존성 관리)
+
+packages.json
+
+--save
+--save-dev
+
+(패키지를 사용하기 위한 것은 --save, 패키지를 개발하기 위해서 사용하는 것은 --save-dev)
+
+--save-g
+
+내 환경
+npm init (package 관리자 하기)
+npm --save express
+npm --save ejs     (ejs 템플릿 엔진)
+npm -g nodemon
+
+nodemon은 서버나 혹은 모든 변경사항을 계속 자동으로 적용해주는 것
+F5 꾸준히 하기
+Disable cache : 콘솔을 열면 caching를 하지 않음
+
+res.append() // 헤더 설정
+
+res.redirect('back'); // 레퍼럴.. 알아보기
+
+sublime text3 설치
+ctrl + shift + p  => package control: install Package => ejs
+
+미들웨어, 라우팅과 상관없이 하고 싶은 것 하는 것
+app.use((req, res, next) => {
+});
+
+미들웨어 /path가 중요.. path를 묶어서 활용
+========================================================================================
+http://programmingsummaries.tistory.com/
+
+프로미스 참조
+
+Ajax, CORS (Cross-Origin-Resource-Sharing)
+
+jQuery = $
+
+code.jquery.com
+api.jquery.com
+
+$가 객체를 가르킨다.
+
+$ (Function)
+
+$.ajax (Function)
+
+$$.on("Click", ~);
+   .once(".", ~);
+   .html("~")
+   .text(" ~ ")
+   .addClass("cls1 cls2 cls3")
+   .removeClass
+   .CSS("prop", "value")
+   .CSS( {
+     prep: "~"
+   })
+
+   .append(자식)
+   .prepend(자식)
+   .appendTo(부모)
+   .hide()
+   .show()
+   .animate(~)
+
+메모리 --> DB --> File --> DBMS --> RDBMS
+                                      |           |-> NoSQL
+WebServer --> Server <---|
+              <----->    CLI-Query
+
+RDBMS는 Foregin Key로써 설명된다.
+Relation이 User와 Article이 있다. User의 id가 Article에 userid로 존재한 경우 FK(Foregin Key)로 사용하여 연결이 되어있다.
+
+NoSQL : Not Only SQL (structured Query Languague)
+정해진 틀이 없다.
+Model -> {
+               id : { --------------- }
+               key2: { ------------- }
+               xy: {----------------}
+               1 : {----------, ab: {----} }
+               }
+
+mysql 비밀번호 : oooo
+
+workbench의 models는 실제 존재하는 데이타가 아니라 설계를 할 때 쓴다.
+구상을 한 후에 실제로 DB에 옮기는 기능도 있다.
+Set as default scheme : 확인하려는 해당 테이블을 지정한 후 오른쪽 클릭에서 설정해야지 데이타가 바로 나온다.
+
+Create Tables..... sheet에 index라는 것이 있다. 넣는 순서이다...
+색인을 해 놓는 것이다.
+
+On Delete에서 CaseCade를 하면 해당 내용을 모두 삭제
+
+On Update에서 CaseCade를 하면 User의 id가 변경될 때, userid가 변경된다.
+
+Restrict를 지정하면 삭제가 안된다.
+
+SELECT * FROM users JOIN articles on articles.user_id = user.id;
+
+SELECT * FROM articles order by rand(); // rand()라는 것이 있다.
+
+SELECT * FROM articles order by asc limit 40, 20 (40개 스킵하고 그 다음 20개);
+
+$ npm --save remove node-mysql && npm --save install mysql
+
+(npm --save는 package에 기록을 남긴다.)
+
+NHN : C++로 콜백함수 만드는 것 해보기..
+========================================================================================
+set foreign_key_checks=0;
+auto increase;
+set foreign_key_checks=1;
+
+위의 SET_FOREIGN_KEY_CHECKS의 값을 변경하면 무결점 부분이 변경 될 수 있다.
+
+deploy <- 서버에 올린다는 뜻
+
+// 모든 것들을 미들웨어에서 로깅하는 것
+app.use((req,res,next) => {
+     console.log(req.url);
+     next();     // 다음 미들웨어 수행
+});
+
+bodyParser.urlencoded({extended: true})의 내부 모습 추측
+(req, res, next) => {
+     // req.body 를 변경
+     next(); next로 턴 넘김
+}
+
+// 미들웨어에서 던지는 것
+app.use((req,res,next) => {
+     next(new Error("Not Found"));
+});
+
+// 미들웨어에서 에러 처리하는 것
+app.use((err, req, res, next) => {
+     console.log("Error!");
+});
+
+static!
+
+// 파일을 그래도 사용하게하는 것
+app.use(express.static(__dirname + '/public'));
+
+module.exports = {
+     conn: conn,
+     bodyParser: ........
+}
+
+js파일에서 공통적으로 사용하는 것을 바꾸기
+common.js로 만들면 된다.
+========================================================================================
+SELECT * FROM users JOIN articles on articles.userid = users.id;
+
+SELECT users.id as usernumber, users.name, users.userid, articles.id as articleid, articles.title, articles.text FROM users JOIN articles on articles.userid = users.id;
+
+<br>
+=> '<' 를 치환하는 것이 html entity라고 한다.
+
+// html injection과 tag에 대한 치환
+
+string.replace(/</g, '&lt;').replace(/\n/g, '<br>');
+
+RESTful
+users
+
+읽는거
+GET /users [{user}..]
+GET /users/3 {user}
+
+넣는거
+POST /users
+     {user}     {user}
+
+수정하는 것
+PUT /users/3
+     {user}     {user}
+
+지우는 것
+DELETE /users
+
+DELETE /users/3
+
+모르는 스크립트는 해석을 안 하지만 아는 스크립트는 해석한다.
+그러므로 jQuery를 사용할 때 script의 type을 임의로 만든다.
+
+싱글페이지 웹을 디버깅할때는 Networkd에서 확인하면 된다.
+
+싱글페이지의 가장 큰 문제는 검색이 안됨.
+SEO가 안됨
+
+로봇이 오면 자신이 로봇인것을 헤더로 준다. --> 이것을 위해서 정적인 웹페이지를 랜더링해서 줘야하는 문제가 있다.
+
+isomorphic javascript
+요즘 나오는 것
+
+Single Page web app을 하기 위해서는 backbone을 해야한다.
+
+Angular 는 backbone보다 볼륨이 더 크다.
+
+ORM 강의
+http://docs.sequelizejs.com/en/v3/
+
+(노드 js 라이브러리 : NodeJS 중 괜찮은 라이브러리)
+
+ORM  ==> Object-relational mapping
+데이터베이스를 객체화한다.
+
+Entry Script -> 진입점
+
+- 보통 ORM은 장인정신이 있어서 단수로 쓰면 복수로 바꿔줌
+
+unkwon column create at 에러..
+
+nodemon 명령어 : rs -> restart
+
+Build는 가상의 객체를 만드는 것
+Save는 저장
+Create는 바로 넣는것
+
+console.log(some.get({plain:true}));     // 원하는 정보만 보고 싶을 때 하기
+
+let은 스코프.. 지역에서만 사용
+
+promise에서 return을 하면 다음 then에서 사용이 가능하다.
+
+ORM은 association을 자동으로 만들어준다..
+========================================================================================
+추상화 : 반복하는 작업을 간소화 시키는게 추상화일 수 있다.
+
+iOS는 CoreData라는 ORM
+
+Model : CoreData, ORM....
+View : xml,
+Controller : Activity
+
+Model : data
+View : ui
+Controller : - (둘을 이어주는 것)
+
+git add file
+git add . (모든 것을 넣는 것)
+git rm --chached file (stage에 있는 파일을 untracted로 변경)
+git check file (stage에 있는 파일을 이미 커밋된 파일로 변경)
+
+>>>
+github와 연동
+git remote add origin 주소 (github의 repository 주소를 넣기)
+
+git pull 은 git fetch와 git merge의 합친 버전
+
+git remote remove (원격 주소지 지우는 것)
+
+>>>
+github의 Setting 에서 Collaborators를 들어가서 권한을 줄 수 있다.
+gitk (gui git명령어)
+
+.gitignore
+/bower-component/**
+
+서버 : ftp (파일을 전송하는 것 전부이다.) 프로토콜
+mac의 ftp 프로그램 : forklift
+
+ssh (시큐어 셀) : 프로토콜
+
+ssh 계정이름@서버주소
+
+telnet이 더 오래된 프로그램
+ssh는 조금 더 최신 (암호화되어있다.)
+
+리눅스 명령어 :
+listens
+
+nohup 명령어 :
+터미널에서 실행했을 때 터미널을 끄면 꺼지지만 nohup은 안 꺼진다.
+https://en.wikipedia.org/wiki/Nohup
+
+keychain Access
+certificate
+공개키 : RSA 공개키 암호화 알고리즘
+공개키와 비공개키를 가지고 있다.
+키 파일이란 것은 서로 암호화 및 복호화할 때 쓴다.
+
+DES : 대칭키 암호화
+
+ssl : 암호화 알고리즘
+
+developer.apple.com
+
+DNS는 http 수준 (어플리케이션 수준)
+
+osx dns server ip
+
+dns는 호스팅이나 아마존 웹서비스 같은 곳에서 매핑해준다.
+
+8.8.8.8
+208.67.220.220
+208.67.222.222
+10.0.0.1
+
+위의 4개는 게이트웨이 주소 같은 것이다.
+dns가 위에를 맵핑해준다.
+
+dns는 레코드라는 것이 있다.
+type과 value가 있다.
+A라는 type은 이름과 ip를 맵핑
+CNAME은 다른 도메인에 연결해주는 것
+MX : 메일서버 주소를 알려주는 레코드
+
+네임 서버는 계속 브로드캐스팅 해주는 것이다.
+dnsever
+
+bower : npm 같은 package 매니저
+(a package manager for web)
+bower가 하는 것은 javascript, css
+npm이 하는 것은  nodejs
+
+>> package.json과 bower.json은 npm install이나 bower install을 하면 해당 package에 존재하는 설치파일들을 추가한다.
+
+mac : brew install
+ubuntu : apt-get /
+
+google analyst
+mixpanel
+
+gulp와 webpack
+
+NODE_ENV=productino webpack
+
+font-family:url('font...')
+========================================================================================
+blog 만들기
+mkdir blog
+index.js 만들기
+
+mysqlcmd에서 create database blog;
+
+.gitignore
+/node_modules/*
+
+mkdir public
+mkdir controllers
+mkdir views
+mkdir models
+
+middleware 연결
+
+파비콘, favicon
+=> npm에서 serve-favicon
+
+morgan - header의 User Information을 보내준다.
+
+git 사용
+/**/node_modules/**
+
+css를 골라서 쓰면 골라서 쓰기
+
+head에서 meta 태그가 가장 먼저 있는 것이 표준이다.
+link 태그 뒤에 script 태그가 있어야 랜더링할 떄 좋다
+meta 태그가 하는게 해당 html에 대한 메타 정보를 나타낸다.
+meta 태그의 viewport는 모바일 같은 곳에서 볼때 편하게 볼 수 있게 한다.
+user-scalable=no  <= 모바일에서 확대가 안된다.
+
+link의 media="all"
+만약 media에서 print를 설정하면 print할 때 다르게 할 수 있다.
+
+포트폴리오 같은 것 만들 때 워드프레스로 만들기
+
+morgan : "combined" or "dev"
+
+user : req.session.user || null
+-> undefined일 경우 null로 넣는다.
+
+var a = someVar || [];
+someVar이 없으면 array가 되라.
+========================================================================================
+Database => Reverse Engineer (MySQL의 데이타를 다이어그램으로 할 수 있는 것)
+
+^ : exponent 지수
+
+실행할 때, DROP이라는 환경변수를 주어야 한다.
+==>
+DROP=1 nodemon .
+
+locals에 있는 것은 template에서 다 쓸 수가 있다.
+========================================================================================
+
+express는 객체가 5개가 있다.
+
+미들웨어는 라우팅 되기전에 인자가 3개인 공통적으로 적용되는 함수
+
+라우팅 순서
+app.get('/write');
+app.get('/:add');
+위와 같은 순서로 해야한다.
+
+req.sessions // express-session 미들웨어를 쓴 경우
+
+200 응답 잘되었다.
+300 페이지 이동
+301 영구적으로 옮겨졌다.
+303 잠깐 옮겨졌다.
+404 not found
+422 validation 문제
+401 권한이 없다.
+
+redirect 헤더의 response에 location 추가
+Location : /bbs/...
+
+res.status(301).set('Loacation', '...');
+res.redirect('...');
+
+========================================================================================
+
+현재까지..
+페이지 라우팅.
+모델 구성.
+더미 데이터 구성.
+
+블로그 요소 분석
+
+파일과 post를 many to many 관계를 한 이유
+파일 명 중복, 재사용성 등
+
+코멘트
+  자기가 자기 형식을
+
+시간되면 trackback 부분 구현하기...
+RESTful 할 듯
+
+http://docs.sequelizejs.com/en/v3/docs/querying/
+
+- blog 개발 계획
+
+    - 많은 기능을 가지고 있는 블로그로 구현
+
+- 디자인
+    - google에서 "bootstrap blog"로 검색하여 무료로 제공하는 blog 중 많은 기능에 대한 디자인을 제공하는 template 검색
+    - https://colorlib.com/wp/free-bootstrap-blog-templates/ 사이트 중 Animus로 결정
+    - https://w3layouts.com/animus-a-blogging-category-flat-bootstrap-responsive-web-template/
+
+models.txt
+블로그
+- 아이디
+- 비밀번호
+- 이름
+- 페이스북
+- 이메일
+- 위/경도
+- 주소
+- 전화번호
+- 팩스
+- contact 소개
+& 상단 로고(파일)
+& About(게시물)
+
+카테고리
+- 이름
+& 블로그
+
+파일
+- 파일명
+- 파일타입(MIME)
+- 경로
+- 다운로드 수
+& 블로그
+
+게시물
+- 조회수, 좋아요, 내용, 제목
+& 카테고리
+& 코멘트들
+& 태그들
+& 파일들
+& 블로그
+
+코멘트
+- 이름
+- 이메일
+- 내용
+& 코멘트
+& 게시물
+& 블로그
+
+contact
+- 이름
+- 이메일
+- 내용
+& 블로그
+
+태그
+- 이름
+
+미니 프로젝트 (블로그) 구현 순서
+
+- 블로그 템플릿 고르기
+- static 폴더에 넣고 라우터 및 구조 잡기
+
+- 하나씩 뷰를 옮기고 navition 하이라이팅
+
+- 데이터 베이스 모델링 - 페이지를 보면서 모델링 - bootstrap의 Animus가 가지고 있는 기능을 모두 사용하기 위해서 모델링 (원래 서비스를 처음 만들 경우 다 구상을 해야하는데 여기서는 blog의 서비스를 따라가기로함, 보면서 프로퍼티들을 뽑아냄)
+
+- 페이비별로 모델을 생각하면서 구조 잡기, 개인 블로그이므로 글은 혼자만 올릴 수 있음
+- models 폴더에 모델 정의하기. 모델간의 관계는 전에 정의한 relate 함수에서 자동으로 연결해줌. 이때 코멘트는 자기 자신을 가짐. (하위 코멘트)
+
+- 모델을 생성한 뒤에 더미데이터를 집어넣어서 테스트해보기 (모델별로 적어도 하나씩). DB에 데이터가 제대로 들어갔는지 확인 후 기능을 하나씩 구현하기
+
+// 참고사항
+- 처음 require할때 코드가 실행되어 메모리에 올라가고 두번째 require할때는 메모리에 있는 것만 참조됨
+- many to many 관계를 정의할 때 피벗 테이블이 생성됨.
+- mysql workbench에서 모델 그림 그리기 : 메뉴의 Database->reverse engineer
+- middleware 실행시점 (request가 올때)을 이용해서 res.locals에 블로그 객체를 달아두었던 방식
+- Sequelize의 association과 관련된 함수들 (http://docs.sequelizejs.com/en/latest/docs/associations/)
+
+설치법 가이드 및 테스트 해보기
+
+READE.md
+# 설치
+```
+git clone https://github.com/dehypnosis/blog.git targetDirName
+cd targetDirName
+npm install
+config.json을 알맞게 수정
+DROP=1 node .
+^C 로 종료
+node .
+```
+
+# 현재까지
+* 페이지 라우팅
+* 모델 구성
+* 더미 데이터 구성
+
+========================================================================================
+?page를 바로 사용하면 현재의 page 주소 끝에 추가 주소를 더한다.
+
+<div><a href="?page=<%=page+1%>"> next </a></div>
+<div><a href="<%=url%>?page=<%=page+1%>"> next </a></div>
+
+위의 두 가지 코드는 동일한 코드이다.
+
+select count(*) from Posts where Posts.blog_id = 1 join Categories on Posts.category_id = Categories.id group by posts.id
+
+interpolation
+인터폴레이션?
+스트링 넣는다.
+
+``를 사용해야지 인터폴레이션을 할 수 있다. `${res.blog.id}`
+
+========================================================================================
+sublime text 강좌
+https://www.inflearn.com/course/sublime-text-3-%EB%A7%88%EC%8A%A4%ED%84%B0%EB%A7%81-%EC%BD%94%EC%8A%A4/?error=login
+
+========================================================================================
+
+
+자바스크립트에서 날짜 보이게 하는 것
+
+var a = new Date();
+
+꿀팁
+
+site: 사이트명 검색어
+크롬 명령어
+
+required <= html5에 생김
+required에 정규 표현식을 쓸 수 있음 : pattern="abc"
+css에서 state,
+
+valid, ->
+
+<textarea> : 여기에서 resize를 하면 크기를 조절할 수 있다.
+resize : vertical
+resize : horizon
+resize : both
+reize both
+
+form에 name이 있으면 바로 가져 올 수 있다. (ajax에서)
+form 밑에 input은 자동으로 가져온다.
+
+form의 reset을 클릭하면 form에 있는 모든 내용이 비워짐
+
+window.location.replace
+// replace는 히스토리에 안 남기고 주소 바꾸는 것
+
+disqus 댓글 퍼포먼스
+prizmjs
+
+www.workshop.benzen.io
+
+multi part form data
+
+enctype="multipart/form-data"
+enctype="application/x-www-urlencoded multipart/form-data">
+
+바이너리를 보낼 때, base64
+
+파일을 임시파일로 먼저 저장
+
+express file upload
+
+========================================================================================
+
+
+npm --save install mysql 이 있어야 sequelize도 사용 가능하다.
+
+console.log(Object.keys(a)); // key 값만 보여주는 방법
+
+process.env <- 환경변수들을 가지고 있다 (쉘에서 실행할 때 넣어주는 변수들)
+쉘 방식
+console.log(process.env);
+
+블로킹 메소드 용어.. 콜백 메소드의 반대 용어
+
+처음 nodejs로 웹을 만들때의 명령어
+
+npm init
+npm install mysq sequelize express ejs express-session body-parser --save
+
+process.env 환경 변수 확인법 ==> 쉘에서 env를 타이핑
+
+환경변수 값 입력
+export value=값
+
+https://blog.outsider.ne.kr/548
+
+인증
+passport : authentication
+
+다음 차례
+lord of pomelo 보기
+
+ai 모듈 -> ai는 오토마타 finite state module
+
+서버에는 로직 validation만 하는게 맞음
+
+로그인
+AI
+Lord of pomelo -> mysql
+
+
+========================================================================================
+
+Node.js를 사용한 프로젝트
+
+1.모델링
+https://www.devsaran.com/blog/10-best-nodejs-frameworks-developers
+
+Ruby에는 db내에 다형성이 있다.
+
+게임 개요
+LOL의 칼바람의 나락과 같은 게임을 개발한다.
+서버는 pomelo를 사용, client는 Unity3D를 사용한다. 추가로 iOS를 간단히 개발하기 위해서 op.gg 사이트를 개발한다.
+
+Modeling (모델링) db
+
+User
+- id
+- password
+- email
+
+Character
+- name
+- HP
+- MP
+- 방어력
+- 공격력
+- 레벨당 %
+- 이동속도
+- 회복속도
+- 이미지경로
+- 스킬 (Q)
+
+Skill
+- 데미지
+- name
+- 쿨타임
+- 사거리
+- CC
+- %즈가율
+
+CC
+- 이름
+- 지속시간
+
+게임기록
+- kill
+- death
+- 게임id
+- 게임시간
+- 레벨
+- 승/패
+
+Item
+- 가격
+- 이름
+- 공격력
+- 체력
+
+캐릭터 선택 시
+Unity - socket(broadcast) - Unity
+
+캐릭터
+
+건물
+
+맵 모델링
+
+서버 공부
+https://github.com/netease/pomelo/wiki
+
+pomelo 설치
+https://github.com/NetEase/pomelo/wiki/Installation
+
+Hello World 만들기
+
+npm init
+npm install pomelo --save
+
+추후에 서버
+https://aws.amazon.com/ko/free/
+
+클라이언트 Unity3D공부
+
+unity3d용 서버 SDK
+https://github.com/NetEase/pomelo-unityclient
+
+클라이언트 iOS공부
+
+게임의 개념은 칼바람 나락
+
+- Pomelo의 소스를 참고하여 게임 제작
+
+http://pomelo.netease.com/index.html
+
+참고 : 큰 규모의 게임을 만들기 위한 서버
+http://bigworldtech.com/en/
+
+v8이  cpp로 되어있음
+
+RPC
+
+Remote Procedual call : 서버에서 api와 같이 일을 해 주는 프로세스
+
+민힙?
+
+Gate server 에서 Load balancing 을 해준다.
+connector server를 배정해주는 것이 load balancing, gate server가 first point다.
+
+connector server 는 client와의 교환 (frontendserver), 외부 port와 내부 port가 존재함
+
+application server는 connector server와 일함, internal port로 사용 ( backend server)
+
+master server는 서버를 실행시킬때 영향이 있음
+
+https://github.com/NetEase/pomelo/wiki/Pomelo-design-motivation
+
+디자인 동기인데, 웹서버와 게임서버의 차이점을 자세히 설명함.
+번역 후 push해도 좋고 참고해서 프로젝트에 넣어도 좋을 듯
+
+다음 차례
+lord of pomelo 보기
+
+ai 모듈 -> ai는 오토마타 finite state module
+
+서버에는 로직 validation만 하는게 맞음
+
+로그인
+AI
+Lord of pomelo -> mysql
+
+게임 서버 프레임워크 : Sun RedDwarf
+
+http://www.reddwarfserver.org/
+
+SmartfoxServer
+
+BigWorld
+
+gate로 가는 법
+
+https://github.com/NetEase/pomelo/wiki/Application-Configuration
+
+========================================================================================
+
+express generator
+
+$ npm install express-generator -g
+
+
+express —ejs aos_with_node
+
+npm install
+
+npm start
+nodemon start
+
+bootstrap login
+
+
