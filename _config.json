@@ -1,0 +1,12 @@
+{
+	"api": {
+		"key": "",
+		"secret": ""
+	},
+	"mailing":{
+		"service": "",
+		"user": "",
+		"pass": "",
+		"to": ""
+	}
+}
