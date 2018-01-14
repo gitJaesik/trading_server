@@ -2,7 +2,26 @@ var express = require('express');
 var router = express.Router();
 var https = require('https');
 var http = require('http');
+var request = require('request');
+var fs = require('fs');
 var config = JSON.parse(fs.readFileSync(__dirname+'/config.json'));	//config.api.key
+
+var requestLoop = setInterval(function(){
+	request({
+		url: "http://www.google.com",
+		method: "GET",
+		timeout: 1000*0.5,
+		followRedirect: true,
+		maxRedirects: 10
+	},function(error, response, body){
+		if(!error && response.statusCode == 200){
+			console.log('sucess!');
+		}else{
+			console.log('error' + response.statusCode);
+		}
+	});
+}, 1000*1);
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
