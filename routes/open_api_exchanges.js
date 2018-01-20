@@ -79,66 +79,12 @@ function httpsRequest(params, postData) {
     });
 }
 
-
-
-/*
-var params = {
-    host: '127.0.0.1',
-    port: 4000,
-    method: 'GET',
-    path: '/api/v1/service'
-};
-// this is a get, so there's no post data
-
-httpRequest(params).then(function(body) {
-    console.log(body);
-});
-*/
-
-/*
-httpRequest(params).then(function(body) {
-    console.log(body);
-    return httpRequest(otherParams);
-}).then(function(body) {
-    console.log(body);
-    // and so on
-});
-*/
-
-
 function notExported(){
 	// ...
 }
 
+
 function bittrex() {
-	const options = {
-		hostname: 'bittrex.com', 
-		port: 443,
-		path: '/api/v1.1/public/getmarkets',
-		method: 'GET'
-	};
-
-	const request = https.request(options, (response) => {
-        var dataFromBittrex = "";
-		// console.log('statusCode:', response.statusCode);
-		// console.log('headers:', response.headers);
-		response.on('data', (d) => {
-			//process.stdout.write(d);
-			dataFromBittrex += d;
-		});
-
-		response.on('end', ()=> {
-            console.log(dataFromBittrex);
-		})
-	});
-
-	request.on('error', (e) => {
-		console.error(e);
-	});
-	request.end();
-}
-
-function bittrex2() {
     const options = {
         hostname: 'bittrex.com', 
         port: 443,
@@ -147,48 +93,18 @@ function bittrex2() {
         timeout : 1000*1
     };
 
-/*
-    httpsRequest(options).then(function(data) {
-        console.log("promise");
-        // console.log(data);
-        return data;
-    }).catch(function (err) {
-        console.log(err);
-        return "";
-    });
-*/
     return httpsRequest(options);
 }
 
 
 function google() {
-	// request({
-	// 	url: "http://www.google.com",
-	// 	method: "GET",
-	// 	timeout: 1000*0.5,
-	// 	followRedirect: true,
-	// 	maxRedirects: 10
-	// },function(error, response, body){
-	// 	if(!error && response.statusCode == 200){
-	// 		console.log('sucess!');
-	// 	}else{
-	// 		console.log('error' + response.statusCode);
-	// 	}
-	// });
+
 	var params = {
 		host: 'www.google.com',
 		port: 80,
 		method: 'GET',
 		path: '/'
 	};
-
-	// httpRequest(params).then(function(body) {
-	// 	console.log(body);
-	// 	return httpRequest(otherParams);
-	// }).then(function(body) {
-	// 	console.log(body);
- //    // and so on
-	// });
 
 	httpRequest(params).then(function(data) {
 		return data;
@@ -200,6 +116,5 @@ function google() {
 
 module.exports = { // 이 모듈은 이 객체를 노출합니다.
 	bittrex : bittrex,
-    bittrex2 : bittrex2,
 	google : google
 };
