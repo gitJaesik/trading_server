@@ -1,26 +1,25 @@
 var express = require('express');
 var router = express.Router();
-var https = require('https');
-var http = require('http');
-var request = require('request');
+// var https = require('https');
+// var http = require('http');
+// var request = require('request');
 var fs = require('fs');
 var config = JSON.parse(fs.readFileSync(__dirname+'/config.json'));	//config.api.key
+var crawl_open = require('./open_api_exchanges'); // 상대 경로나 절대 경로로 모듈의 경로를 정확히 지정해야합니다. .js 확장자는 생략 할 수 있습니다.
 
 var requestLoop = setInterval(function(){
-	request({
-		url: "http://www.google.com",
-		method: "GET",
-		timeout: 1000*0.5,
-		followRedirect: true,
-		maxRedirects: 10
-	},function(error, response, body){
-		if(!error && response.statusCode == 200){
-			console.log('sucess!');
-		}else{
-			console.log('error' + response.statusCode);
-		}
+	// var data = crawl_open.bittrex();
+	//console.log(data);
+	// var data = crawl_open.google();
+	// console.log(data);
+	crawl_open.bittrex2().then((data)=> {
+		console.log(data);
+	}).catch((err)=> {
+		console.log(err);
 	});
-}, 1000*1);
+
+
+}, 1000*5);
 
 
 /* GET home page. */
@@ -28,39 +27,8 @@ router.get('/', function(req, res, next) {
 	res.render('index', { title: 'Express' });
 });
 
-/*
-router.get('/bittrex', function(req, res, next) {
-	http.get({
-		hostname: 'localhost',
-		port: 80,
-		path: '/',
-  		agent: false  // create a new agent just for this one request
-		}, (res) => {
-  		// Do stuff with response
-	});
-});
-*/
-/* GET BTC from bittrex */
-
 router.get('/bittrex', function(req, res, next) {
 	/*
-	var options = {
-		host: 'http://bittrex.com/api/v1.1/public/getmarkets',
-		port: 80,
-		path: '/',
-		method: 'POST'
-	};
-
-	http.request(options, function(response) {
-		console.log('STATUS: ' + response.statusCode);
-		console.log('HEADERS: ' + JSON.stringify(response.headers));
-		response.setEncoding('utf8');
-		response.on('data', function (chunk) {
-			console.log('BODY: ' + chunk);
-		});
-	}).end();
-	*/
-
 	const options = {
 		hostname: 'bittrex.com', 
 		port: 443,
@@ -84,6 +52,7 @@ router.get('/bittrex', function(req, res, next) {
 	request.end();
 
 	res.send(JSON.stringify(dataFromBittrex));
+	*/
 });
 
 
