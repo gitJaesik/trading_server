@@ -85,16 +85,31 @@ function notExported(){
 
 
 function bittrex() {
+    // path: '/api/v1.1/public/getmarkets',
     const options = {
         hostname: 'bittrex.com', 
         port: 443,
-        path: '/api/v1.1/public/getmarkets',
+        path: '/api/v1.1/public/getmarketsummaries',
         method: 'GET',
-        timeout : 1000*1
+        timeout : 1000*1.5
     };
 
     return httpsRequest(options);
 }
+
+function binance() {
+    // path: '/api/v1.1/public/getmarkets',
+    const options = {
+        hostname: 'www.binance.com', 
+        port: 443,
+        path: '/api/v1/ticker/24hr',
+        method: 'GET',
+        timeout : 1000*1.5
+    };
+
+    return httpsRequest(options);
+}
+
 
 
 function google() {
@@ -116,5 +131,6 @@ function google() {
 
 module.exports = { // 이 모듈은 이 객체를 노출합니다.
 	bittrex : bittrex,
+    binance : binance,
 	google : google
 };

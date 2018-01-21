@@ -58,3 +58,5 @@ temp/
 
 #private info
 config.json
+ip
+secrete.pem 
