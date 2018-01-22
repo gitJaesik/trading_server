@@ -62,16 +62,6 @@ var requestLoop = setInterval(function(){
 		fifo2.shift();
 	}
 
-	crawl_open.bittrex().then((data)=> {
-		// console.log(data);
-		// console.log(Object.keys(data));
-		if (data.success == true) {
-			fifo.push(data.result);
-		}
-	}).catch((err)=> {
-		console.log(err);
-	});
-
 	Promise.all([
 		crawl_open.bittrex(),
 		crawl_open.binance()
@@ -81,7 +71,7 @@ var requestLoop = setInterval(function(){
 			fifo.push(data[0].result);
 		}
 		if (data[1].success == true) {
-			fifo2.push(data[1].result);
+			fifo2.push(data[1]);
 		}
 	})
 	.catch((err)=> {
