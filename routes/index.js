@@ -70,7 +70,7 @@ var requestLoop = setInterval(function(){
 		if (data[0].success == true) {
 			fifo.push(data[0].result);
 		}
-		if (data[1].success == true) {
+		if (data[1] && data[1] !== 'null' && data[1] !== 'undefined') {
 			fifo2.push(data[1]);
 		}
 	})
