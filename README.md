@@ -3,6 +3,14 @@
 
 todo
 
+input data to mysql which I get by email
+
+input data to hbase which I get from open api
+
+input data to redis which I want to check sepcially
+
+
+
 use all trading site to get the information that what coin could be raised.
 cryptopia 
 바이낸스
