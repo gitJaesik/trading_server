@@ -17,10 +17,10 @@ var requestLoop = setInterval(function(){
 				if (fifo[0][i].MarketName == fifo[1][j].MarketName) {
 					var volumeIncrease = fifo[0][i].BaseVolume / fifo[1][j].BaseVolume;
 					var priceIncrease = fifo[0][i].Last / fifo[1][j].Last;
-					if (volumeIncrease > 1.2 || priceIncrease > 1.05 || priceIncrease < 0.92) {
+					if (volumeIncrease > 1.2 || volumeIncrease < 0.8|| priceIncrease > 1.05 || priceIncrease < 0.92) {
 						// console.log(volumeIncrease);
 						// console.log(priceIncrease);
-						var priceLog = `bt marketname : ${fifo[0][i].MarketName}, priceIncrease : ${priceIncrease}, volumeIncrease : ${volumeIncrease}`;
+						var priceLog = `bt marketname : ${fifo[0][i].MarketName}, priceIncrease : ${priceIncrease}, volumeIncrease : ${volumeIncrease}, price : ${fifo[0][i].Last}, volume : ${fifo[0][i].BaseVolume}`;
 						//console.log(priceLog);
 						priceLogs += priceLog + '\n';
 
@@ -43,10 +43,10 @@ var requestLoop = setInterval(function(){
 				if (fifo2[0][i].symbol == fifo2[1][j].symbol) {
 					var volumeIncrease2 = fifo2[0][i].quoteVolume / fifo2[1][j].quoteVolume;
 					var priceIncrease2 = fifo2[0][i].lastPrice / fifo2[1][j].lastPrice;
-					if (volumeIncrease2 > 1.2 || volumeIncrease2 < 0.83 || priceIncrease2 > 1.04 || priceIncrease2 < 0.925) {
+					if (volumeIncrease2 > 1.1 || volumeIncrease2 < 0.9 || priceIncrease2 > 1.03 || priceIncrease2 < 0.95) {
 						// console.log(volumeIncrease);
 						// console.log(priceIncrease);
-						var priceLog2 = `bn marketname : ${fifo2[0][i].symbol}, priceIncrease : ${priceIncrease2}, volumeIncrease : ${volumeIncrease2}`;
+						var priceLog2 = `bn marketname : ${fifo2[0][i].symbol}, priceIncrease : ${priceIncrease2}, volumeIncrease : ${volumeIncrease2}, price : ${fifo2[0][i].lastPrice}, volume : ${fifo2[0][i].quoteVolume}`;
 						//console.log(priceLog2);
 						priceLogs2 += priceLog2 + '\n';
 
