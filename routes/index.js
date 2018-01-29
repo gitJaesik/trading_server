@@ -43,7 +43,7 @@ var requestLoop = setInterval(function(){
 				if (fifo2[0][i].symbol == fifo2[1][j].symbol) {
 					var volumeIncrease2 = fifo2[0][i].quoteVolume / fifo2[1][j].quoteVolume;
 					var priceIncrease2 = fifo2[0][i].lastPrice / fifo2[1][j].lastPrice;
-					if (volumeIncrease2 > 1.1 || volumeIncrease2 < 0.9 || priceIncrease2 > 1.03 || priceIncrease2 < 0.95) {
+					if (volumeIncrease2 > 1.2 || volumeIncrease2 < 0.8 || priceIncrease2 > 1.05 || priceIncrease2 < 0.92) {
 						// console.log(volumeIncrease);
 						// console.log(priceIncrease);
 						var priceLog2 = `bn marketname : ${fifo2[0][i].symbol}, priceIncrease : ${priceIncrease2}, volumeIncrease : ${volumeIncrease2}, price : ${fifo2[0][i].lastPrice}, volume : ${fifo2[0][i].quoteVolume}`;
