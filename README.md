@@ -32,3 +32,6 @@ CICD (continuous integration and continuous delivery)
 https://aws.amazon.com/blogs/compute/tag/cicd/\r\n
 
 
+Question
+setInterval을 꼭 restart 해야하는 이유가 있나?
+setInterval을 하는 거은 openapi에서 데이터를 가져오는 것 => restart를 할 필요는 없음
