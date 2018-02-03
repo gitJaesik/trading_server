@@ -14,7 +14,7 @@ function sendMailTo(content) {
 	var mailOptions = {
 		from: config.mailing.user,
 		to: config.mailing.to,
-		subject: 'Sending Email using Node.js',
+		subject: 'Trading Server',
 		text: content
 	};
 
