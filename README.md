@@ -11,6 +11,9 @@ parsing하기
 2. 데이터구조 변경하기
 
 
+SPA 페이지 설계하기
+1. event확인 페이지 : 특정 코인의 가격, 볼륨 변화량 또는 타 거래소의 시세차이량이 높은 경우에 관한 기록들을 확인 할 수 있는 페이지
+2. 모든 거래소 코인 가격 페이지 : 모든 거래소의 코인 가격을 보여주는 페이지, 로그인 기능으로 특정 코인의 가격이 넘으면 알람을 받을 수 있게 해주는 기능 추가 (사실 이게 메인)
 
 
 todo
@@ -20,6 +23,8 @@ input data to mysql which I get by email
 input data to hbase which I get from open api
 
 input data to redis which I want to check sepcially
+
+hbase map reduce 공부하기
 
 
 

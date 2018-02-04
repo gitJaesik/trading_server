@@ -1,5 +1,6 @@
 var crawl_open = require('./open_api_exchanges'); // 상대 경로나 절대 경로로 모듈의 경로를 정확히 지정해야합니다. .js 확장자는 생략 할 수 있습니다.
 var message_system = require('./send_message');
+var models = require('../models/index');
 
 function coin_parser_mailer() {
 

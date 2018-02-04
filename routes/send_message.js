@@ -1,6 +1,7 @@
 var nodemailer = require('nodemailer');
 var fs = require('fs');
-var config = JSON.parse(fs.readFileSync(__dirname+'/config.json'));	//config.api.key
+//var config = JSON.parse(fs.readFileSync(__dirname+'/config.json'));	//config.api.key
+const config = require('../config');
 
 function sendMailTo(content) {
 	var transporter = nodemailer.createTransport({
