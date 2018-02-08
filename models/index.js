@@ -1,20 +1,3 @@
-const config = require('../config');
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize(config.db.mysql.database, config.db.mysql.user, config.db.mysql.password, {
-	host: config.db.mysql.host,
-	dialect: config.db.mysql.product,
-
-	pool: {
-		max: 5,
-		min: 0,
-		acquire: 30000,
-		idle: 10000
-	},
-
-  // SQLite only
-  // storage: 'path/to/database.sqlite'
-});
-
 const fs = require('fs');
 const Seq = require('sequelize');
 const config = require('../config');
