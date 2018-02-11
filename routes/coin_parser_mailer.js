@@ -1,12 +1,15 @@
 var crawl_open = require('./open_api_exchanges'); // 상대 경로나 절대 경로로 모듈의 경로를 정확히 지정해야합니다. .js 확장자는 생략 할 수 있습니다.
 var message_system = require('./send_message');
 var models = require('../models/index');
+const exchange_parser_config = require('../configs/exchange_parser_config.json');
 
 function coin_parser_mailer() {
 
 	var fifo = [];
 	var fifo2 = [];
+
 	var seq = 0;
+
 	var requestLoop = setInterval(function(){
 		console.log(seq++);
 		if (fifo.length == 2) {	// remove 3 more memory
@@ -55,9 +58,9 @@ function coin_parser_mailer() {
 			fifo2.shift();
 		}
 
+		// exchange_parser_config.exchanges.map(crawl_open.crawl_exchange) returns promise array.
 		Promise.all([
-			crawl_open.bittrex(),
-			crawl_open.binance()
+			exchange_parser_config.exchanges.map(crawl_open.crawl_exchange)
 			])
 		.then((data)=> {
 			if (data[0].success == true) {

@@ -1,0 +1,42 @@
+MySql db 설계
+
+with nolock
+
+tick -> int  1분에 한번씩 api호출
+1시간 60 1일 60*24 1년 60*24*365 = 525,600
+
+메인테이블 (마켓 내 가격 변동)
+idx : long long
+coin number : int
+market number : int
+price change : double
+voulume change : double
+before price : double
+before volume : double
+before after : double
+before after : double
+
+메인테이블 (마켓 타 마켓과의 가격 차이)
+idx : long long
+coin number : int
+some market number : int
+other market number : int
+price differece percent : double
+some market price : double
+other market price : double
+
+
+인덱스테이블? 코인
+coin name : char(256)
+coin number : int
+
+인덱스테이블? 마켓
+market name : char(256)
+market number : int
+market country number : int
+
+인덱스테이블? 나라
+country name : char(256)
+market country number : int
+
+

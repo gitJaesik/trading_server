@@ -1,0 +1,50 @@
+{
+  "_comment": "position(pre, post), splitter(), marketkinds(coinkinds)",
+  "exchanges": [
+    {
+      "exchange_name" : "bittrex",
+      "url_info" : {
+        "_comment" : "for using https requests",
+        "hostname" : "bittrex.com",
+        "port" : 443,
+        "path" : "/api/v1.1/public/getmarketsummaries",
+        "method" : "GET"
+      },
+      "check" : { 
+        "hasCheck" : "yes",
+        "wrapper" : "object",
+        "success" : "success"
+      },
+      "data" : {
+        "datacommand" : "result",
+        "wrapper" : "array",
+        "marketposition": "pre",
+        "splitter": "-",
+        "marketkinds": ["BTC", "ETH", "USDT"]
+      }
+      
+    },
+    {  
+      "exchange_name" : "binance",
+      "url_info" : {
+        "hostname" : "www.binance.com",
+        "port" : 443,
+        "path" : "/api/v1/ticker/24hr",
+        "method" : "GET"
+      },
+      "check" : { 
+        "hasCheck" : "no",
+        "wrapper" : "",
+        "success" : ""
+      },
+      "data" : {
+        "datacommand" : "",
+        "wrapper" : "array",
+        "marketposition": "post",
+        "splitter": "",
+        "marketkinds": ["BNB", "BTC", "ETH", "USDT"]            
+      }
+
+    }
+  ]
+}

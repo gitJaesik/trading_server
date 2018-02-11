@@ -83,6 +83,19 @@ function notExported(){
 	// ...
 }
 
+function crawl_exchange(exchange) {
+    // below option @TODO : timeout setting change
+    const options = {
+        hostname: exchange.url_info.hostname, 
+        port: exchange.url_info.port,
+        path: exchange.url_info.path,
+        method: exchange.url_info.method,
+        timeout : 1000*1.5
+    };
+
+    return httpsRequest(options);
+}
+
 
 function bittrex() {
     // path: '/api/v1.1/public/getmarkets',
@@ -130,6 +143,7 @@ function google() {
 }
 
 module.exports = { // 이 모듈은 이 객체를 노출합니다.
+    crawl_exchange : crawl_exchange,
 	bittrex : bittrex,
     binance : binance,
 	google : google
