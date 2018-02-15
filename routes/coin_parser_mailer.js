@@ -59,9 +59,9 @@ function coin_parser_mailer() {
 		}
 
 		// exchange_parser_config.exchanges.map(crawl_open.crawl_exchange) returns promise array.
-		Promise.all([
+		Promise.all(
 			exchange_parser_config.exchanges.map(crawl_open.crawl_exchange)
-			])
+			)
 		.then((data)=> {
 			if (data[0].success == true) {
 				fifo.push(data[0].result);
