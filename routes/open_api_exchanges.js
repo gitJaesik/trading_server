@@ -48,6 +48,10 @@ function httpsRequest(params, postData) {
                 return reject(new Error('statusCode=' + res.statusCode));
             }
             // cumulate data
+            var obj = {
+                "hostname" : params.hostname,
+                "data" : []
+            };
             var body = [];
             res.on('data', function(chunk) {
                 body.push(chunk);
@@ -63,7 +67,9 @@ function httpsRequest(params, postData) {
                     reject(e);
                 }
                 //console.log(body);
-                resolve(body);
+                obj.data = body;
+                resolve(obj);
+                // resolve(body);
             });
         });
         // reject on request error
@@ -86,7 +92,7 @@ function notExported(){
 function crawl_exchange(exchange) {
     // below option @TODO : timeout setting change
     const options = {
-        hostname: exchange.url_info.hostname, 
+        hostname: exchange.url_info.hostname,
         port: exchange.url_info.port,
         path: exchange.url_info.path,
         method: exchange.url_info.method,

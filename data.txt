@@ -1,0 +1,22 @@
+Executing (default): CREATE TABLE IF NOT EXISTS `pvevents` (`id` INTEGER NOT NULL auto_increment , `idx` BIGINT NOT NULL, `tick_id` INTEGER NOT NULL, `cryp_exchange_no` VARCHAR(255) NOT NULL, `base_coin_market_no` VARCHAR(255) NOT NULL, `coin_no` VARCHAR(255) NOT NULL, `price_change` DOUBLE PRECISION, `volume_change` DOUBLE PRECISION, `former_price` DOUBLE PRECISION, `former_volume` DOUBLE PRECISION, `latter_price` DOUBLE PRECISION, `latter_volume` DOUBLE PRECISION, `created_at` DATETIME NOT NULL, `updated_at` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `pvevents`
+database has been made
+0
+[ { hostname: 'bittrex.com',
+    data: { success: true, message: '', result: [Object] } },
+  { hostname: 'www.binance.com',
+    data: 
+     [ [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], [Object], ... 168 more items ] } ]
+
+
+[ { hostname: 'bittrex.com', exchange: 'bittrex', fifo: [] },
+  { hostname: 'www.binance.com', exchange: 'binance', fifo: [] } ]
+
+
+data parsing 기준 => bittrex
+
+{"symbol":"ETHBTC","priceChange":"0.00230000","priceChangePercent":"2.501","weightedAvgPrice":"0.09361953","prevClosePrice":"0.09194500","lastPrice":"0.09424500","lastQty":"0.10800000","bidPrice":"0.09415200","bidQty":"5.65900000","askPrice":"0.09424500","askQty":"4.35200000","openPrice":"0.09194500","highPrice":"0.09520000","lowPrice":"0.09180000","volume":"155819.63600000","quoteVolume":"14587.76112837","openTime":1516810002363,"closeTime":1516896402363,"firstId":25718287,"lastId":26023791,"count":305505}
+
+{"MarketName":"BTC-XRP","High":0.00014188,"Low":0.00011901,"Volume":46538407.10064328,"Last":0.00012463,"BaseVolume":6059.57021758,"TimeStamp":"2018-01-20T10:46:37.55","Bid":0.00012462,"Ask":0.00012463,"OpenBuyOrders":4901,"OpenSellOrders":28388,"PrevDay":0.00014108,"Created":"2014-12-22T19:30:27.45"}
+
+

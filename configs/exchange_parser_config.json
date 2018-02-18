@@ -13,16 +13,19 @@
       "check" : { 
         "hasCheck" : "yes",
         "wrapper" : "object",
-        "success" : "success"
+        "success" : "success",
+        "success_value" : true,
+        "datacommand" : "result",
+        "wrapper" : "array"
       },
       "data" : {
-        "datacommand" : "result",
-        "wrapper" : "array",
         "marketposition": "pre",
         "splitter": "-",
-        "marketkinds": ["BTC", "ETH", "USDT"]
+        "marketkinds": ["BTC", "ETH", "USDT"],
+        "MarketName" : "MarketName",
+        "Last" : "Last",
+        "BaseVolume" : "BaseVolume"
       }
-      
     },
     {  
       "exchange_name" : "binance",
@@ -35,16 +38,21 @@
       "check" : { 
         "hasCheck" : "no",
         "wrapper" : "",
-        "success" : ""
+        "success" : "",
+        "success_value" : null,
+        "datacommand" : "",
+        "wrapper" : "array"
       },
       "data" : {
-        "datacommand" : "",
-        "wrapper" : "array",
         "marketposition": "post",
         "splitter": "",
-        "marketkinds": ["BNB", "BTC", "ETH", "USDT"]            
+        "marketkinds": ["BNB", "BTC", "ETH", "USDT"],
+        "MarketName" : "symbol",
+        "Last" : "lastPrice",
+        "BaseVolume" : "quoteVolume"
       }
-
     }
   ]
 }
+
+

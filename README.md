@@ -6,10 +6,24 @@ open_api 불러오기 모듈화
 2. setInterval 부분 클래스화(프로토타입화)하기
 
 
-parsing하기
-1. 그동안 불러온 데이터 parsing하기
+- Parsing -
+
+REST GET part
+using https by config files and get json format data from exchanges
+
+Checking validation part
+check by config files and set continuous flag for event message.
+- continuous flag setting : 
+-- set true when get data successly and do not anything (length 2 is confirm for prev data)
+-- set flase when do not get data, flush all data (for length 2)
+@TODO length 2 should be change like prev, post.
+
+1. 그동안 불러온 데이터 parsing하기 \ parse log files to add data
 2. 데이터구조 변경하기
 => config 파일에 파싱 내역 입력하면 알아서 parsing 할 수 있도록 구현하기
+3. promise 에 정보를 주어서 resolve시에 해당 마켓에 대한 유효성을 확인 할 수 있도록 한다 (array순서대로 수행하는 것이 좋지만 가독성이 좋지 않다.)
+
+
 
 SPA 페이지 설계하기
 1. event확인 페이지 : 특정 코인의 가격, 볼륨 변화량 또는 타 거래소의 시세차이량이 높은 경우에 관한 기록들을 확인 할 수 있는 페이지
