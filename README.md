@@ -5,6 +5,13 @@ open_api 불러오기 모듈화
 1. setInterval 부분 module화 하기
 2. setInterval 부분 클래스화(프로토타입화)하기
 
+Hbase install
+to install habse on my mac and aws s3, use docker
+https://docs.docker.com/docker-for-mac/install/
+above link is docker install link.
+
+https://hub.docker.com/r/harisekhon/hbase/
+above link is docker which hbase is set.
 
 - Parsing -
 
