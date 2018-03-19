@@ -13,6 +13,9 @@ above link is docker install link.
 https://hub.docker.com/r/harisekhon/hbase/
 above link is docker which hbase is set.
 
+https://docs.docker.com/docker-for-mac/docker-toolbox/#the-docker-for-mac-environment
+to set up docker on mac, read above texts.
+
 - Parsing -
 
 REST GET part
